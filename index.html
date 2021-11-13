@@ -11,7 +11,11 @@
   gtag('config', 'UA-176901192-1');
   fetch('https://api.ipify.org?format=json')
     .then(results => results.json())    
-    .then(data => console.log(data.ip));
+    .then(data =>  dataLayer.push({"event":"ipEvent","ipAddress" : data.ip}))
+    .then(console.log("pushed ip to gtag"));
+       
+    
+
   
 </script>
         <meta charset="utf-8" />
